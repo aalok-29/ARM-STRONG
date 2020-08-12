@@ -30,25 +30,25 @@ In case of Single Edged PWM, the pulse will be always at the beginning or the en
 
 ## PWM Resiters
 
-** PWM Timer Control Register (PWMTCR): **
+**PWM Timer Control Register (PWMTCR):**
 PWM Timer Control Register is used to control the PWM Timer Counter. This Timer Counter is specific to the PWM block. Bit 0 in the PWMTCR register is used to enable or disable the counter in PWM block. When this bit is 1, the PWM TC and PWM Prescale Counter are enabled. When this bit is 0, both are disabled. Bit 1 is used to reset the PWM TC and PWM Prescale Counter. Bit 3 is used to enable or disable the PWM Mode.
 
-** PWM Prescale Register (PWMPR): **
+**PWM Prescale Register (PWMPR):**
 PWM Prescale Register is used to set the resolution of the PWM outputs. The PWM TC will increment for every PWMPR + 1 PCLK cycles.
 
-** PWM Match Registers (PWMMR0 – PWMMR6): **
+**PWM Match Registers (PWMMR0 – PWMMR6):**
  Each PWM Match Register is associated with each PWM pin i.e. PWM 1 to PWM 6 are associated with PWMMR1 to PWMMR6 respectively. The values in the PWM Match Register are compared with the value in PWM TC.
 
-** PWM Match Control Register (PWMMCR): **
+**PWM Match Control Register (PWMMCR):**
 The PWM Match Control Register is used to control the operations that can be done when the value in the PWM Match registers and PWM TC register are same. Three bits are associated with each Match Register i.e. Bit 0, Bit 1 and Bit 2 for PWMMR0, Bit 3, Bit 4 and Bit 5 for PWMMR1, etc. If we consider PWMMR0, the Bit 0 in PWMMCR is used to enable an interrupt, Bit 1 is used to reset the PWM TC and Bit 2 is used to stop the PWM TC and PWM PC.
 
-** PWM Interrupt Register (PWMIR): **
+**PWM Interrupt Register (PWMIR):**
 PWM Interrupt Register is used to identify the interrupts based on PWM Match Registers. There are 7 bits in PWMIR corresponding to 7 PWM Match Register Interrupts. When an interrupt occurs, the corresponding bit in the PWMIR register is set to HIGH. If the bit is manually set to HIGH, the interrupt is reset.
 
-** PWM Latch Enable Register (PWMLER):**
+**PWM Latch Enable Register (PWMLER):**
 When PWM Match Registers are used to generate PWM signals, the PWM Latch Enable Register is used to control its update. When the value of the PWM Match Registers are updated when the PWM is active, the values will be stored in a shadow register. When an event occurs on the PWMMR0 register, the values will be transferred to the Match Registers from the shadow register only if the corresponding bit in the PWMLER is set to 1.
 
-** PWM Control Register (PWMPCR):**
+**PWM Control Register (PWMPCR):**
  PWM Control Register is used to enable or disable the PWM outputs and also select the mode of PWM i.e. either single edge or double edge. Bit 2 to Bit 6 in the PWMPCR register are used to set the PWM output as either single edge or double edge for PWM2 to PWM6. Bit 9 to Bit 14 are used to enable or disable the PWM1 to PWM6 outputs respectively.
 
 ## Steps to Configure PWM
